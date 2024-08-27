@@ -47,10 +47,33 @@
 
 ## Exploratory Data Analysis
 
+### Descriptive Statistics
+
+### Data Quality
+
+### Sales Trends
+
+### Geographical Distribution of Sales
+
+### Category and Product Analysis
+
+### Store Performance Analysis
+
+
+### Correlation and Relationships Analysis
+
+
+### Correlation and Relationships Between Variables
 
 
 ## Data Analysis
+### Geographical Sales Performance Analysis
 
+### Vendor Performance Analysis
+
+### Category-Specific Analysis
+
+### Store Level Performance
 
 ## Results
 
