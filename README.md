@@ -5,10 +5,29 @@
 ## Overview
 ### Summary
 
-In the state of Iowa, the state government acts as the sole wholesaler and distributor of distilled spirits through its Alcohol and Tax Operations Division, a branch from the Iowa Department of Revenue. Along with managing the sale to licensed businesses in the state. Meaning they buy 
+In the state of Iowa, the state government acts as the sole wholesaler and distributor of distilled spirits through its Alcohol and Tax Operations Division, a branch from the Iowa Department of Revenue. Along with managing the sale to licensed businesses in the state. Meaning they buy spirits from the vendors, and sell them to stores, who wish to stock them. This dataset looks at all transactions that the IDR made with stores in the 2021, that had Class 'E' licenses.
 
-### Data Source
+</br>
+
+### Objectives
+- Identify overall sales trends for the year
+- Identify how geography affects sales
+- Find which products are purchased together the most, through market basket analysis
+- Categorize stores based on their purchasing behavior
+- Identify the Department of Revenue's pricing strategies
+- Study which vendors and products produce the products most profitable for the IDR
+
+</br>
+  
 ### Tools
+
+</br>
+
+### References
+
+</br>
+
+## Data Source
 
 ### Data Dictionary
 | Column       | Data Type       | Description                              |
@@ -39,15 +58,7 @@ In the state of Iowa, the state government acts as the sole wholesaler and distr
 | `Volume Sold (Gallons)`| Integer |Total volume in gallons sold from the order ((Bottle Volume (ml) x Bottles Sold)/3785.411784)|
 
 
-
-### Objectives
-- Identify overall sales trends for the year
-- Identify how geography affects sales
-- Find which products are purchased together the most, through market basket analysis
-- Categorize stores based on their purchasing behavior
-- Identify the Department of Revenue's pricing strategies
-- Study which vendors and products produce the products most profitable for the IDR
-### References
+</br>
 
 
 ## Data Cleaning and Preparation
@@ -57,20 +68,40 @@ In the state of Iowa, the state government acts as the sole wholesaler and distr
 
 ### Descriptive Statistics
 
+</br>
+
 
 ### Sales Trends
 
+</br>
+
+
 ### Geographical Distribution of Sales
+
+</br>
+
 
 ### Category and Product Analysis
 
+</br>
+
+
 ### Products vs. Revenue
+
+</br>
+
 
 ## Data Analysis
 
 ### Vendor Performance Analysis
 
+</br>
+
+
 ### Category-Specific Analysis
+
+</br>
+
 
 ### Customer Segmentation
 In order to characterize the stores that the IDR sells liquor to, we must categorize each store's recency score (how long it's been since they last bought ordered something, in 2021), their frequency score (how often they buy from them), and their monetary score (the total revenue that they have brought, through transactions).
@@ -113,13 +144,20 @@ ORDER BY TransactionCount desc;
 
 
 ```
+
+</br>
+
+
 #### RFP Analysis
 
 
 
+</br>
+
+
 #### Geographical Sales Performance Analysis
 
-#### Revenue by City
+##### Revenue by City
 With stores segmented by location and the amount of revenue produced, we can look at which cities' stores brought the most revenue
 ```py
 
@@ -143,6 +181,9 @@ CityRevenue.head(50).plot.bar(x='City', y='TotalRevenue', rot=0, figsize=(75,50)
 
 ### Profit Markup and Margin Analysis
 
+</br>
+
+
 #### Category Profit Analysis
 ```py
 plt.figure(figsize=(30,80))
@@ -161,6 +202,9 @@ plt.show()
 </br>
 
 ![Category Profit](https://github.com/user-attachments/assets/2ec4c5a7-5faa-4d53-a6bf-9129c42fa8f2)
+
+</br>
+
 
 Cost by Category
 ```py
@@ -182,10 +226,19 @@ plt.show()
 ![Cost by Category](https://github.com/user-attachments/assets/cebc4793-69de-4143-b932-b53cf6546337)
 
 
+</br>
+
+
 ### Market Basket Analysis
+
+</br>
+
 
 ## Results
 ### Limitations
+
+</br>
+
 
 ## Licenses
 
