@@ -4,14 +4,17 @@
 
 ## Overview
 ### Summary
+
+In the state of Iowa, the state government acts as the sole wholesaler and distributor of distilled spirits through its Alcohol and Tax Operations Division, a branch from the Iowa Department of Revenue. Along with managing the sale to licensed businesses in the state. Meaning they buy 
+
 ### Data Source
 ### Tools
 
 ### Data Dictionary
-| Column       | Data Type       | Description                                                                      |
+| Column       | Data Type       | Description                              |
 |-------------------|-------------|-----------------------------------------------------------------------------|
 | `Invoice/Item Number`      | Text     | Index for the orders.                        |
-| `Date`    | 	Floating Timestamp | Date that the order was made.     |
+| `Date`    | 	Datetime | Date that the order was made.     |
 | `Store Number`      | Integer     | Unique identifier for the store who made the order.                |
 | `Store Name`      | Text     | Name of store who made the order.                   |
 | `Address`      | Text     | Address of the store's location.  |
@@ -33,12 +36,17 @@
 | `Bottles Sold`      | Integer     | Number of bottles ordered by the store   |
 | `Sale (Dollars)`      | Integer     | Total cost of the order (number of bottles multiplied by the state bottle retail)  |
 | `Volume Sold (Liters)`      | Integer     |Total volume in liters sold from the order  ((Bottle Volume (ml) x Bottles Sold)/1,000)   |
-| `Volume Sold (Gallons)`      | Integer     |Total volume in gallons sold from the order ((Bottle Volume (ml) x Bottles Sold)/3785.411784)  |
+| `Volume Sold (Gallons)`| Integer |Total volume in gallons sold from the order ((Bottle Volume (ml) x Bottles Sold)/3785.411784)|
 
 
 
 ### Objectives
-
+- Identify overall sales trends for the year
+- Identify how geography affects sales
+- Find which products are purchased together the most, through market basket analysis
+- Categorize stores based on their purchasing behavior
+- Identify the Department of Revenue's pricing strategies
+- Study which vendors and products produce the products most profitable for the IDR
 ### References
 
 
@@ -49,7 +57,6 @@
 
 ### Descriptive Statistics
 
-### Data Quality
 
 ### Sales Trends
 
@@ -57,26 +64,24 @@
 
 ### Category and Product Analysis
 
-### Store Performance Analysis
-
-
-### Correlation and Relationships Analysis
-
-
-### Correlation and Relationships Between Variables
-
+### Products vs. Revenue
 
 ## Data Analysis
-### Geographical Sales Performance Analysis
 
 ### Vendor Performance Analysis
 
 ### Category-Specific Analysis
 
-### Store Level Performance
+### Customer Segmentation
+#### RFP Analysis
+
+#### Geographical Sales Performance Analysis
+
+### Profit Markup and Margin Analysis
+### Market Basket Analysis
 
 ## Results
-
+### Limitations
 
 ## Licenses
 
