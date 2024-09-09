@@ -73,11 +73,77 @@ In the state of Iowa, the state government acts as the sole wholesaler and distr
 ### Category-Specific Analysis
 
 ### Customer Segmentation
+
+
 #### RFP Analysis
+
+
 
 #### Geographical Sales Performance Analysis
 
+#### Revenue by City
+With stores segmented by location and the amount of revenue produced, we can look at which cities' stores brought the most revenue
+```py
+
+# Grouping by revenue by cities
+CityRevenue = data.groupby('City').agg({
+    'TotalRevenue': 'sum',  # Total revenue per city
+    'Bottles': 'sum'        # Total bottles sold per city
+}).reset_index()
+
+# Sorting by cities that generated the most revenue
+CityRevenue = CityRevenue.sort_values(by='TotalRevenue', ascending=False)
+
+# Create a bar graph that shows the Top 50 Iowan cities by revenue
+CityRevenue.head(50).plot.bar(x='City', y='TotalRevenue', rot=0, figsize=(75,50))
+```
+
+
+![Top 50 Cities by Revenue](https://github.com/user-attachments/assets/13fc3207-c952-41b9-bf2c-d977d234df51)
+
+</br>
+
 ### Profit Markup and Margin Analysis
+
+#### Category Profit Analysis
+```py
+plt.figure(figsize=(30,80))
+
+
+data.boxplot(column='Profit', by='CategoryName', vert=False, grid=False, figsize=(40,30))
+
+
+
+plt.title('Profit by Category')
+plt.xlabel('Profit')
+plt.ylabel('Category')
+plt.show()
+```
+
+</br>
+
+![Category Profit](https://github.com/user-attachments/assets/2ec4c5a7-5faa-4d53-a6bf-9129c42fa8f2)
+
+Cost by Category
+```py
+
+plt.figure(figsize=(30,80))
+
+
+data.boxplot(column='Cost', by='CategoryName', vert=False, grid=False, figsize=(40,30))
+
+
+
+plt.title('Cost by Category')
+plt.xlabel('Cost')
+plt.ylabel('Category')
+plt.show()
+```
+</br>
+
+![Cost by Category](https://github.com/user-attachments/assets/cebc4793-69de-4143-b932-b53cf6546337)
+
+
 ### Market Basket Analysis
 
 ## Results
