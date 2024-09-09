@@ -73,8 +73,46 @@ In the state of Iowa, the state government acts as the sole wholesaler and distr
 ### Category-Specific Analysis
 
 ### Customer Segmentation
+In order to characterize the stores that the IDR sells liquor to, we must categorize each store's recency score (how long it's been since they last bought ordered something, in 2021), their frequency score (how often they buy from them), and their monetary score (the total revenue that they have brought, through transactions).
+
+</br>
+To adequately so, we must calculate all those scores, and categorize which segment they fall into (low, medium, high) based on the number. 
+
+```sql
+WITH RFM_Store AS (
+    SELECT
+        StoreNumber, City, County,
+        MAX(SUBSTR(Date, 7, 4) || '-' || SUBSTR(Date, 1, 2) || '-' || SUBSTR(Date, 4, 2)) AS LastTransactionDate,     -- Recency: Last transaction date
+        COUNT(*) AS TransactionCount,         -- Frequency: Number of transactions
+        SUM(CAST(REPLACE(StateBottleRetail, ',', '') AS FLOAT) * CAST(BottlesSold AS FLOAT)) AS TotalRevenue,  -- Monetary: Total revenue
+sum(BottlesSold) as Bottles
+    FROM Liquor
+    GROUP BY StoreNumber
+)
+
+-- Calculating RFM segments (optional, if you want to categorize based on R, F, and M values)
+SELECT
+    StoreNumber, City, County,
+    LastTransactionDate,
+    julianday('2022-01-01') - julianday(LastTransactionDate) AS RecencyScore,  -- Recency: Days since the last transaction
+    TransactionCount,
+    CASE 
+        WHEN TransactionCount > 5000 THEN 'High'
+        WHEN TransactionCount BETWEEN 700 AND 5000 THEN 'Medium'
+        ELSE 'Low'
+    END AS FrequencyScore,  -- Categorize Frequency
+    TotalRevenue,
+    CASE 
+        WHEN TotalRevenue > 900000 THEN 'High'
+        WHEN TotalRevenue BETWEEN 400000 AND 900000 THEN 'Medium'
+        ELSE 'Low'
+    END AS MonetaryScore,-- Categorize Monetary value
+		Bottles
+FROM RFM_Store
+ORDER BY TransactionCount desc;
 
 
+```
 #### RFP Analysis
 
 
